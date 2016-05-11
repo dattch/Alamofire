@@ -218,7 +218,9 @@ public class Request {
                 operationQueue.suspended = true
 
                 if #available(OSX 10.10, *) {
-                    operationQueue.qualityOfService = NSQualityOfService.Utility
+                    if #available(iOS 8.0, *) {
+                        operationQueue.qualityOfService = NSQualityOfService.Utility
+                    }
                 }
 
                 return operationQueue
